@@ -1,8 +1,10 @@
 <template>
     <div>
+        <h2 class="text-blue-600">Wpisy:</h2>
         <button @click="pobierzWpisy">refresh</button>
-        siema blog!
-        {{ wpisy }}
+        <div v-for="wpis in wpisy">
+            <p>{{  wpis }}</p>
+        </div>
         <input v-model="nowyBlog" type="text">
         <button @click="dodajWpisy">dodaj</button>
     </div>
@@ -25,10 +27,10 @@ export default {
         async pobierzWpisy() {
             this.wpisy = await dzien2_backend.odczytaj_wpisy();
         },
-        async usunWpisy() {
-            this.wpisy = await dzien2_backend.usun_wpis();
-        }
     },
+    async mounted() {
+        this.pobierzWpisy()
+    }
 
 }
 </script>
