@@ -24,6 +24,9 @@ export default {
         },
         async pobierzWpisy() {
             this.wpisy = await dzien2_backend.odczytaj_wpisy();
+        },
+        async usunWpisy() {
+            this.wpisy = await dzien2_backend.usun_wpis();
         }
     },
 
